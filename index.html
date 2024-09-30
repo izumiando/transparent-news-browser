@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .search-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .results {
+      margin-top: 20px;
+    }
+
+    .article {
+      background-color: white;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .article h3 {
+      margin: 0;
+    }
+
+    .article a {
+      text-decoration: none;
+      color: #007BFF;
+      cursor: pointer;
+    }
+
+    .article a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <h1>News Search</h1>
+    <input type="text" id="searchQuery" placeholder="Enter search term...">
+    <button onclick="searchNews()">Search</button>
+  </div>
+
+  <div class="results" id="results"></div>
+
+  <script>
+    const apiKey = 'aa563547e9744968a5cbe499a122f5ed';  // Replace with your actual NewsAPI key
+
+    function searchNews() {
+      const query = document.getElementById('searchQuery').value;
+      if (!query) {
+        alert('Please enter a search term');
+        return;
+      }
+
+      const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => displayResults(data.articles))
+        .catch(error => console.error('Error fetching news:', error));
+    }
+
+    function displayResults(articles) {
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+
+      if (articles.length === 0) {
+        resultsDiv.innerHTML = '<p>No articles found.</p>';
+        return;
+      }
+
+      articles.forEach(article => {
+        const articleDiv = document.createElement('div');
+        articleDiv.className = 'article';
+
+        articleDiv.innerHTML = `
+          <h3><a onclick="navigateToArticle('${encodeURIComponent(article.description || 'No description available')}')">${article.title}</a></h3>
+          <p>${article.description || 'No description available'}</p>
+          <small><strong>Source:</strong> ${article.source.name}</small>
+        `;
+
+        resultsDiv.appendChild(articleDiv);
+      });
+    }
+
+    function navigateToArticle(description) {
+      window.location.href = `article.html?description=${description}`;
+    }
+  </script>
+</body>
+</html>

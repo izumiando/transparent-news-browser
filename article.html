@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Description</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+    }
+
+    .description {
+      width: 48%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="description">
+      <h2>Original Description</h2>
+      <p id="original"></p>
+    </div>
+
+    <div class="description">
+      <h2>Translated Description (Japanese)</h2>
+      <p id="translated"></p>
+    </div>
+  </div>
+
+  <script>
+    const deepLApiKey = 'a481462b-6c18-4ece-b754-a4f366d56a86:fx'; // Replace with your actual DeepL API key
+
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function displayOriginalDescription() {
+      const description = getQueryParam('description');
+      document.getElementById('original').innerText = decodeURIComponent(description);
+      return description;
+    }
+
+    function translateToJapanese(text) {
+      const url = 'https://api-free.deepl.com/v2/translate';
+      const params = new URLSearchParams({
+        auth_key: deepLApiKey,
+        text: text,
+        target_lang: 'JA'
+      });
+
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: params.toString()
+      })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('translated').innerText = data.translations[0].text;
+        })
+        .catch(error => console.error('Error translating:', error));
+    }
+
+    // Display original description and trigger translation
+    const originalDescription = displayOriginalDescription();
+    translateToJapanese(originalDescription);
+  </script>
+</body>
+</html>
