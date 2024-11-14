@@ -2,7 +2,7 @@
 
 class CreateArticle {
     constructor(){
-        // nothing to
+        // nothing to create automatically
     }
 
     execute(title, author, data, ns, url, description, html){
