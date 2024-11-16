@@ -18,3 +18,6 @@ The architecutre / logic of the code is visualized on Miro : https://miro.com/ap
 
 ## The Author
 Izumi Ando. Fourth-year undergrad at the University of Toronto studying bioinformatics / computational biology and computer science. 
+
+## Funding
+This project is not-for-profit but sponsorship / donations are welcome to keep this up and running. Main expenses include server fees and subscription fees for software development tools.
