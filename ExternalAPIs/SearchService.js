@@ -1,11 +1,12 @@
 // Interface
 class SearchService {
-    constructor(apiName){
+    constructor(apiName, apiKey){
         this.apiName = apiName;
+        this.apiKey = apiKey;
     }
 
-    execute(query) {
-        throw new Error("search method must be implemented");
+    searchArticles(query) {
+        throw new Error("searchArticles method must be implemented");
     }
 }
 

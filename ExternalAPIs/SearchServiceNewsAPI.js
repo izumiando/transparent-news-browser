@@ -1,10 +1,18 @@
 // SearchServiceNewsAPI.js
 
 class SearchServiceNewsAPI extends SearchService {
-    // not sure if i need to make a constructor if it carries over from SearchService
+    constructor (){
+        super("NewsAPI", "aa563547e9744968a5cbe499a122f5ed");
+    }
 
-    execute(query) {
-        // run the search through NewsAPI
+    searchArticles(query) {
+        const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${this.apiKey}`;
+
+        return fetch(url)
+            .then(response => response.json())
+            .then(data => {return data.articles;}) // details of data.articles structure https://newsapi.org/docs/get-started#search
+            .catch(error => {console.error('Error fetching news:', error);
+                throw error;});
     }
 }
 

@@ -1,6 +1,6 @@
 // Interface
 class SearchRepository {
-    execute(query) {
+    getRawResults(query) {
         throw new Error("search method must be implemented");
     }
 }

@@ -1,7 +1,7 @@
 // testing coding by writing up Article Entity
 
 class Article {
-    constructor(title, author, data, ns, url, description, html){
+    constructor(title, author, date, ns, url, description, html, api){
         this.title = title;
         this.author = author;
         this.date = date;
@@ -9,6 +9,7 @@ class Article {
         this.url = url;
         this.description = description;
         this.html = html;
-        this.translated_html = null
+        this.translated_html = null;
+        this.sourceAPI = api;
     }
 }

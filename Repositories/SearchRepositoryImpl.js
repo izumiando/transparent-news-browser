@@ -1,13 +1,12 @@
 // SearchRepositoryImpl.js
 
 class SearchRepositoryImpl extends SearchRepository {
-    constructor(searchServices) {
-        // not sure what this is 
-        // super();
+    constructor(searchServices) { 
+        super();
         this.searchServices = searchServices; // list of SearchService objects
     }
 
-    execute(query) {
+    getRawResults(query) {
         const rawResults = {};
         // Call the SearchService to fetch data from the API
         for(let i = 0; i < this.searchServices.length; i++){
