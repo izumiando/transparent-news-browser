@@ -1,7 +1,7 @@
 // Author entitiy
 // country, contributing platforms, known political stance / affiliations, coverage, readership, website / social media, bio
 
-class Author {
+export class Author {
     constructor(country, ns, affiliations, coverage, readership, website, bio){
         this.country = country;
         this.ns = ns; // list of NewsSources they contribute to

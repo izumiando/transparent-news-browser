@@ -1,6 +1,6 @@
 // testing coding by writing up Article Entity
 
-class Article {
+export class Article {
     constructor(title, author, date, ns, url, description, html, api){
         this.title = title;
         this.author = author;

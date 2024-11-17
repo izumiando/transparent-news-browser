@@ -1,6 +1,8 @@
 // SearchRepositoryImpl.js
+import { SearchService } from '../ExternalAPIs/SearchService.js'
+import { SearchRepository } from './SearchRepository.js';
 
-class SearchRepositoryImpl extends SearchRepository {
+export class SearchRepositoryImpl extends SearchRepository {
     constructor(searchServices) { 
         super();
         this.searchServices = searchServices; // list of SearchService objects
@@ -10,10 +12,8 @@ class SearchRepositoryImpl extends SearchRepository {
         const rawResults = {};
         // Call the SearchService to fetch data from the API
         for(let i = 0; i < this.searchServices.length; i++){
-            rawResults[this.searchServices[i].apiName] = await this.searchServices[i].execute(query);
+            rawResults[this.searchServices[i].apiName] = this.searchServices[i].searchArticles(query);
         }
         return rawResults;
     }
 }
-
-export default SearchRepositoryImpl;

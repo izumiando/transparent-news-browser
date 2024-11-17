@@ -1,5 +1,5 @@
 // Interface
-class SearchService {
+export class SearchService {
     constructor(apiName, apiKey){
         this.apiName = apiName;
         this.apiKey = apiKey;
@@ -9,5 +9,3 @@ class SearchService {
         throw new Error("searchArticles method must be implemented");
     }
 }
-
-export default SearchService;

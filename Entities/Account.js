@@ -1,7 +1,7 @@
 // Account entitiy
 // name/nickname, country, email, password, collection, topics
 
-class Account {
+export class Account {
     constructor(username, country, email, password, collection, topics){
         this.username = username;
         this.country = country;
