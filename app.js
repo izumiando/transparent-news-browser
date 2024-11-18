@@ -16,7 +16,7 @@ async function main(){
     const searchViewModel = new SearchViewModel();
     const searchController = new SearchController(performSearchUseCase, searchViewModel);
 
-    const test = searchController.execute("Japan");
+    const test = await searchController.execute("Japan");
     return test;
 }
 

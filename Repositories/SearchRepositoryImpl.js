@@ -8,12 +8,30 @@ export class SearchRepositoryImpl extends SearchRepository {
         this.searchServices = searchServices; // list of SearchService objects
     }
 
-    getRawResults(query) {
+    async getRawResults(query) {
         const rawResults = {};
-        // Call the SearchService to fetch data from the API
-        for(let i = 0; i < this.searchServices.length; i++){
-            rawResults[this.searchServices[i].apiName] = this.searchServices[i].searchArticles(query);
-        }
+    
+        // Create a list of promises for all search services
+        const promises = this.searchServices.map(async (service) => {
+            try {
+                const data = await service.searchArticles(query);
+                return { apiName: service.apiName, data };
+            } catch (error) {
+                console.error(`Error fetching data from ${service.apiName}:`, error);
+                return { apiName: service.apiName, data: null }; // Gracefully handle errors
+            }
+        });
+    
+        // Resolve all promises concurrently
+        const results = await Promise.all(promises);
+    
+        // Populate the rawResults object
+        results.forEach(result => {
+            rawResults[result.apiName] = result.data;
+        });
+    
+        //console.log(Object.keys(rawResults)); // Logs resolved results
         return rawResults;
     }
+    
 }

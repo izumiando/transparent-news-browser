@@ -13,9 +13,15 @@ export class SearchServiceNewsAPI extends SearchService {
 
         return fetch(req)
             .then(response => response.json())
-            // need to figure out how to use the data
-            .then(data => {console.log(data.articles[0].title)})
-            .then(data => {return data.articles;}) // details of data.articles structure https://newsapi.org/docs/get-started#search
+            // need to figure out how to use the data\
+            .then(data => {
+                if (data.articles) {
+                    //console.log(data.articles); // it looks like it is actually working
+                    return data.articles;
+                } else {
+                    throw new Error('No articles found in response');
+                }
+            }) // details of data.articles structure https://newsapi.org/docs/get-started#search
             .catch(error => {console.error('Error fetching news:', error);
                 throw error;});
     }

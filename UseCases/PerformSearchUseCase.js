@@ -9,9 +9,10 @@ export class PerformSearchUseCase {
     }
 
     // Validate input, calls the SearchRepository, and return results as SearchResult object
-    execute(query){
+    async execute(query){
         // as a next step, translate query before running the search
-        const rawResults = this.searchRepository.getRawResults(query);
+        const rawResults = await this.searchRepository.getRawResults(query);
+        console.log(Object.keys(rawResults));
         const searchResult = this.formatResults(rawResults);
         return searchResult;
     }
@@ -19,18 +20,23 @@ export class PerformSearchUseCase {
     formatResults(results){
         // check what API it is from, format the data to make Articles object
         const formattedResults = [];
-        for (let [key, value] of Object.entries(results)) {
+        console.log("we are in formatResults pre for loop");
+        for (const key in results) {
             // new Article(title, author, data, ns, url, description, html, api)
+            console.log("we are in this for loop");
 
-            if(key == "NewsAPI"){ // not sure if this is going to work
-                for(const article in value){
-                    console.log(`${article[title]}`);
+            if(key == 'NewsAPI'){
+                console.log('we are here'); //ここには至ってるけど
+                // it is either that the 1) api is not returning anything or 2) i am not able to iterate through it
+                for(const article in results[key]){
+                    //console.log('we are now here');　// ここに至ってないんだね
                     // not sure how to get html from this one yet
-                    newArticle = new Article(article['title'], article['author'], article['publishedAt'], article['source']['name'], article['url'], article['description'], null, "NewsAPI");
+                    const newArticle = new Article(article.title, article.author, article.publishedAt, null, article.url, article.description, null, "NewsAPI");
                     formattedResults.push(newArticle);
                 }
             }
         }
+        //console.log(formattedResults[0]);
         return formattedResults;
     }
 
