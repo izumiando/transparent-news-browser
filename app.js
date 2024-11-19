@@ -17,7 +17,12 @@ async function main(){
     const searchController = new SearchController(performSearchUseCase, searchViewModel);
 
     const test = await searchController.execute("Japan");
+    console.log("first 3 formatted results titles returned from main()");
+    console.log(test[0].title);
+    console.log(test[1].title);
+    console.log(test[2].title);
     return test;
 }
 
-main().then(result => console.log(result));
+//main().then(result => console.log(result));
+main();

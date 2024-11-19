@@ -12,8 +12,9 @@ export class PerformSearchUseCase {
     async execute(query){
         // as a next step, translate query before running the search
         const rawResults = await this.searchRepository.getRawResults(query);
-        console.log(Object.keys(rawResults));
-        const searchResult = this.formatResults(rawResults);
+        console.log("in the PerformSearchUseCase execute func");
+        console.log(rawResults["NewsAPI"][1]);
+        const searchResult = await this.formatResults(rawResults);
         return searchResult;
     }
 
@@ -26,12 +27,15 @@ export class PerformSearchUseCase {
             console.log("we are in this for loop");
 
             if(key == 'NewsAPI'){
-                console.log('we are here'); //ここには至ってるけど
+                console.log('we are in the formatting NewsAPI results section'); //ここには至ってるけど
                 // it is either that the 1) api is not returning anything or 2) i am not able to iterate through it
-                for(const article in results[key]){
+                for(let i = 0; i < results[key].length; i++){
                     //console.log('we are now here');　// ここに至ってないんだね
                     // not sure how to get html from this one yet
-                    const newArticle = new Article(article.title, article.author, article.publishedAt, null, article.url, article.description, null, "NewsAPI");
+                    // not sure how to access each attribute in the NewsAPI promise
+                    const article = results[key][i];
+                    //console.log(article['title']);
+                    const newArticle = new Article(article['title'], article['author'], article['publishedAt'], null, article['url'], article['description'], null, "NewsAPI");
                     formattedResults.push(newArticle);
                 }
             }

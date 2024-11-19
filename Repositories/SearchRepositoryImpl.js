@@ -15,6 +15,8 @@ export class SearchRepositoryImpl extends SearchRepository {
         const promises = this.searchServices.map(async (service) => {
             try {
                 const data = await service.searchArticles(query);
+                console.log("in ServiceRepo");
+                console.log(data[1]);
                 return { apiName: service.apiName, data };
             } catch (error) {
                 console.error(`Error fetching data from ${service.apiName}:`, error);
