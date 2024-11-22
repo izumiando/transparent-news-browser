@@ -1,4 +1,4 @@
-import { TranslateService } from './TranslateService';
+import { TranslateService } from './TranslateService.js';
 import * as deepl from 'deepl-node';
 // const axios = require('axios');
 // const FormData = require('form-data');
@@ -17,7 +17,7 @@ export class TranslateServiceDeepL extends TranslateService{
         // const translatedHTML = this.download();
         const translator = new deepl.Translator(this.apiKey);
         // do not hard code this this is only for now
-        const translatedHTML = await translator.translateText(html, null, target_lang='EN-US', tag_handling='html');
+        const translatedHTML = await translator.translateText(html, null, 'EN-US', { tag_handling: 'html' });
         return translatedHTML;
     }
 

@@ -15,7 +15,9 @@ export class TranslateUseCase {
     async execute(article, language, translator){
         // not sure if manipulating the entities here is okay by clean architecture
         // need to add error handing, what to do when scraper errors
-        article.html = this.scraper.getHTML(article.url); // html gets returned as a string object
+        article.html = await this.scraper.fetchHTML(article.url); // html gets returned as a string object
+        console.log("this is the original html");
+        console.log(article.html);
         article.translated_html = this.translateRepository.translate(article.html, language, translator);
         return article;
     }

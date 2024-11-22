@@ -16,7 +16,7 @@ export class TranslateController {
 
     async execute(article, language, translator){
         // question, should this be returning an Article object or just the two HTMLs?
-        const articleTranslated = await this.translateUseCase.execute(article, langauge, translator);
+        const articleTranslated = await this.translateUseCase.execute(article, language, translator);
         return this.translateViewModel.execute(articleTranslated);
     }
 }

@@ -7,14 +7,14 @@ import { SearchService } from './ExternalAPIs/SearchService.js'
 import { SearchServiceNewsAPI } from './ExternalAPIs/SearchServiceNewsAPI.js'
 import { Article } from './Entities/Article.js'
 // everything up to here is for the Search
-// import { TranslateController } from './Controllers/TranslateController.js'
-// import { TranslateUseCase } from './UseCases/TranslateUseCase.js'
-// import { TranslateViewModel } from './ViewModels/TranslateViewModel.js'
-// import { TranslateRepository } from './Repositories/TranslateRepository.js'
-// import { TranslateRepositoryImpl } from './Repositories/TranslateRepositoryImpl.js'
-// import { TranslateService } from './ExternalAPIs/TranslateService.js'
-// import { TranslateServiceDeepL } from './ExternalAPIs/TranslateServiceDeepL.js'
-// import { Scraper } from './Drivers/Scraper.js'
+import { TranslateController } from './Controllers/TranslateController.js'
+import { TranslateUseCase } from './UseCases/TranslateUseCase.js'
+import { TranslateViewModel } from './ViewModels/TranslateViewModel.js'
+import { TranslateRepository } from './Repositories/TranslateRepository.js'
+import { TranslateRepositoryImpl } from './Repositories/TranslateRepositoryImpl.js'
+import { TranslateService } from './ExternalAPIs/TranslateService.js'
+import { TranslateServiceDeepL } from './ExternalAPIs/TranslateServiceDeepL.js'
+import { Scraper } from './Drivers/Scraper.js'
 // everything up to here is for the Translation (html)
 
 
@@ -37,16 +37,16 @@ async function main(){
     console.log(test[2].title);
 
     // this section is for translating an article
-    // const translateServices = {};
-    // translateServices["DeepL"] = new TranslateServiceDeepL();
-    // const scraper = new Scraper();
-    // const translateRepository = new TranslateRepositoryImpl(translateServices);
-    // const translateUseCase = new TranslateUseCase(scraper, translateRepository);
-    // const translateViewModel = new TranslateViewModel();
-    // const translateController = new TranslateController(translateUseCase, translateViewModel);
+    const translateServices = {};
+    translateServices["DeepL"] = new TranslateServiceDeepL();
+    const scraper = new Scraper();
+    const translateRepository = new TranslateRepositoryImpl(translateServices);
+    const translateUseCase = new TranslateUseCase(scraper, translateRepository);
+    const translateViewModel = new TranslateViewModel();
+    const translateController = new TranslateController(translateUseCase, translateViewModel);
 
-    // const translatedArticle = translateController(test[1], "EN-US", "DeepL");
-    // console.log(translatedArticle.translated_html);
+    const translatedArticle = translateController.execute(test[1], "EN-US", "DeepL");
+    console.log(translatedArticle.translated_html);
     return test;
 }
 

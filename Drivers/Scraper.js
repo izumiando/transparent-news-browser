@@ -1,5 +1,5 @@
 // importing libraries
-const axios = require('axios');
+import axios from 'axios';
 //const cheerio = require('cheerio');
 
 export class Scraper {
