@@ -50,5 +50,6 @@ async function main(){
     return test;
 }
 
+// adding a comment to see if the branch is still connected
 //main().then(result => console.log(result));
 main();
