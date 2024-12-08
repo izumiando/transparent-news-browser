@@ -1,4 +1,5 @@
 # transparent-news-browser
+DISCLAIMER!!! This project is still a work in progress!!
 
 ## The Inspiration
 Whenever people ask me, "what are your travel tips for Tokyo?" my answer has always been "always Google restaurants in Japanese." I realized this advice holds true for any information that is influenced by geography or culture; if you want to have a local's perspective you have to look for information in the local language. 
