@@ -49,7 +49,6 @@ async function main(){
     console.log(translatedArticle.translated_html);
     return test;
 }
-
-// adding a comment to see if the branch is still connected
+// test
 //main().then(result => console.log(result));
 main();
