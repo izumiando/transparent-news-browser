@@ -49,6 +49,6 @@ async function main(){
     console.log(translatedArticle.translated_html);
     return test;
 }
-// test
+// test new change
 //main().then(result => console.log(result));
 main();
