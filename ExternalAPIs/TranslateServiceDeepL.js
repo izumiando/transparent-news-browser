@@ -16,7 +16,8 @@ export class TranslateServiceDeepL extends TranslateService{
         // this.checkStatus();
         // const translatedHTML = this.download();
         const translator = new deepl.Translator(this.apiKey);
-        // do not hard code this this is only for now
+        // do not hard code this this is only for now - 12/5 don't harcode what? 忘れた、、、
+        
         const translatedHTML = await translator.translateText(html, null, 'EN-US', { tag_handling: 'html' });
         return translatedHTML;
     }
