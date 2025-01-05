@@ -17,8 +17,24 @@ export class TranslateServiceDeepL extends TranslateService{
         // const translatedHTML = this.download();
         const translator = new deepl.Translator(this.apiKey);
         // do not hard code this this is only for now - 12/5 don't harcode what? 忘れた、、、
-        
-        const translatedHTML = await translator.translateText(html, null, 'EN-US', { tag_handling: 'html' });
+
+        // breaking up the text to prevent API form erroring
+        const textChunks = [];
+        for (let i = 0; i < html.length; i += 1000) {
+            const chunk = html.substring(i, i + 1000);
+            textChunks.push(chunk);
+        }
+
+        // translating by chunk : currently only translating first 1000 char for testing purposes Jan 2nd
+        let translatedHTML = "";
+        for (let k = 0; k < textChunks.length; k++){
+            if (k == 0){
+                const output = await translator.translateText(textChunks[k], null, 'EN-US', { tag_handling: 'html' });
+                translatedHTML = translatedHTML + output;
+            } else {
+                translatedHTML = translatedHTML + textChunks[k];
+            }
+        }
         return translatedHTML;
     }
 

@@ -46,7 +46,8 @@ async function main(){
     const translateController = new TranslateController(translateUseCase, translateViewModel);
 
     const translatedArticle = translateController.execute(test[1], "EN-US", "DeepL");
-    console.log(translatedArticle.translated_html);
+    const sub = translatedArticle.html.substring(0, 1500);
+    console.log(sub);
     return test;
 }
 // test new change
