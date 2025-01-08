@@ -1,7 +1,7 @@
 // Dependencies : PerformSearchUseCase, SearchViewModel
-import { PerformSearchUseCase } from '../UseCases/PerformSearchUseCase.ts'
-import { SearchViewModel } from '../ViewModels/SearchViewModel.ts'
-import { Article } from '../Entities/Article.ts' 
+import { PerformSearchUseCase } from '../UseCases/PerformSearchUseCase'
+import { SearchViewModel } from '../ViewModels/SearchViewModel'
+import { Article } from '../Entities/Article' 
 
 export class SearchController {
     performSearchUseCase: PerformSearchUseCase;

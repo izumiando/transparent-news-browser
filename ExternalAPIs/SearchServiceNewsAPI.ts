@@ -1,5 +1,5 @@
 // SearchServiceNewsAPI.js
-import { SearchService } from "./SearchService.ts";
+import { SearchService } from "./SearchService";
 
 export class SearchServiceNewsAPI extends SearchService {
     constructor (){
