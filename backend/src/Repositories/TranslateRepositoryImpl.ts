@@ -1,4 +1,4 @@
-import { TranslateService } from '../ExternalAPIs/TranslateService'
+import { TranslateService } from '../backend/ExternalAPIs/TranslateService'
 import { TranslateRepository } from './TranslateRepository'
 
 export class TranslateRepositoryImpl extends TranslateRepository {

@@ -1,4 +1,4 @@
-import { Article } from "../Entities/Article"
+import { Article } from "../backend/Entities/Article"
 
 export class TranslateViewModel{
     constructor(){}

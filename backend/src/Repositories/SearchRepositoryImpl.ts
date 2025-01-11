@@ -1,5 +1,5 @@
 // SearchRepositoryImpl.js
-import { SearchService } from '../ExternalAPIs/SearchService'
+import { SearchService } from '../backend/ExternalAPIs/SearchService'
 import { SearchRepository } from './SearchRepository';
 
 export class SearchRepositoryImpl extends SearchRepository {

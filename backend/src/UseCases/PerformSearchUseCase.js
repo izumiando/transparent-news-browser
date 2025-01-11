@@ -1,7 +1,7 @@
 // Depended by SearchController
 // Dependencies : SearchRepository(i), SearchResult (this could be a list of articles)
-import { SearchRepository } from '../Repositories/SearchRepository.js'
-import { Article } from '../Entities/Article.js'
+import { SearchRepository } from '../../Repositories/SearchRepository.js'
+import { Article } from '../../Entities/Article.js'
 
 export class PerformSearchUseCase {
     constructor(searchRepository){
