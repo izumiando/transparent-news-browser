@@ -9,7 +9,6 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-// need to fix this something is not running
 app.get("/api", (req: Request, res: Response) => {
   res.json({ message: "Hello from the backend!" });
 });
