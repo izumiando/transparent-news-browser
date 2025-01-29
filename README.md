@@ -7,6 +7,9 @@ Whenever people ask me, "what are your travel tips for Tokyo?" my answer has alw
 ## The Idea
 The idea is simple. You do a query search using your own language, and you get news articles on that topic from sources around the world, published in different langauges. You can view the articles in the original langauge and in AI translated format side by side and choose or change your translator tool if you want to fully grasp the nuance that is expressed in the original langauge. 
 
+![Search results screen](/images/search_results.png)
+![Article viewing screen](/images/translation.png)
+
 ## Expected Use Cases - inexhaustive, obviously
 - Gain a better rounded perspective on global affiars by reading articles about the same topic published in different countries
 - Understand the affiliations and perspective of dominant local news sources
