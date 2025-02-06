@@ -1,0 +1,11 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle id="TNB Logo" cx="20" cy="20" r="20" fill="url(#paint0_radial_13_19)"/>
+<defs>
+<radialGradient id="paint0_radial_13_19" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 20) rotate(90) scale(20)">
+<stop/>
+<stop offset="0.5" stop-color="#621C17"/>
+<stop offset="0.7" stop-color="#B85B04"/>
+<stop offset="1" stop-color="#FEC200"/>
+</radialGradient>
+</defs>
+</svg>
