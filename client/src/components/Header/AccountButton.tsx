@@ -1,14 +1,19 @@
 import React from 'react'
-import 'Header.css'
+import './Header.css'
 
-function AccountButton(loginStatus: boolean, accountAction: any){    
+interface AccountButtonProps {
+    loginStatus: boolean;
+    accountAction: () => void;
+}
+
+function AccountButton({ loginStatus, accountAction }: AccountButtonProps) {    
     var action: String = "Log In";
     if(loginStatus){
         action = "Log Out";
     }
 
     return(
-        <button className="account" onClick={accountAction}>{action}</button>
+        <button className="account-button" onClick={accountAction}>{action}</button>
     );
 }
 

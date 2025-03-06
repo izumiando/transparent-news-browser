@@ -6,7 +6,7 @@ import './Header.css'
 import axios from 'axios'; // not sure if I need this
 
 function Header() {
-  const [count, setCount] = useState(0)
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const fetchAPI = async () => {
     const response = await axios.get('http://localhost:8080/api');
@@ -18,16 +18,16 @@ function Header() {
     fetchAPI();
   }, []);
 
-  function doAction(){
-    // this function should either allow
+  function goHome(){
+    // send user home
+    console.log("pretend you got sent home");
   }
-  loggedIn
 
   return (
     <div id="root">
-      <LogoButton />
+      <LogoButton logoClick={() => goHome()}/>
       <SearchBar />
-      <UpperRight accountAction={() => doAction(loggedIn)}/>
+      <UpperRight loginStatus={loggedIn}/>
     </div>
   )
 }

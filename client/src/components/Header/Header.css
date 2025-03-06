@@ -1,18 +1,63 @@
 #root {
   background-color: #000000;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures spacing between elements */
+  background-color: black;
+  padding: 10px 20px;
   height: 66px;
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
+  width: 100%;
 }
   
 .logo {
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  padding: 12px;
+  background-color: black;
+  cursor: pointer;
 }
-.account {}
-.search {}
-.langauge {}
-.upper-right{}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  border: 1px solid #666;
+  border-radius: 20px;
+  padding: 8px 12px;
+  width: 500px;
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  padding: 4px 8px;
+}
+
+.search-icon {
+  color: white;
+  cursor: pointer;
+}
+
+.upper-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lang-icon {
+  color: white;
+  cursor: pointer;
+}
+
+.account-button {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}

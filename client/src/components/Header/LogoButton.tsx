@@ -1,11 +1,8 @@
-import React from 'react'
 import Logo from '../../assets/logo.svg'
-import 'Header.css'
+import './Header.css'
 
-function LogoButton() {
+function LogoButton(logoClick: any) {
     return (
-        <div className="logo">
-            <img src={Logo} alt="logo" />
-        </div>
+        <button className="logo" onClick={logoClick}><img src={Logo} alt="logo" /></button>
     )
 } export default LogoButton
