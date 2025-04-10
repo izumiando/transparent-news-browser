@@ -5,7 +5,7 @@ import UpperRight from './UpperRight'
 import './Header.css'
 import axios from 'axios'; // not sure if I need this
 
-function Header() {
+function Header(runSearch: any) {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const fetchAPI = async () => {
@@ -24,9 +24,9 @@ function Header() {
   }
 
   return (
-    <div id="root">
+    <div className="header">
       <LogoButton logoClick={() => goHome()}/>
-      <SearchBar />
+      <SearchBar onSearch={() => runSearch}/>
       <UpperRight loginStatus={loggedIn}/>
     </div>
   )
