@@ -11,21 +11,16 @@ function Header(runSearch: any) {
   const fetchAPI = async () => {
     const response = await axios.get('http://localhost:8000/api');
     console.log("message from backend");
-    console.log(response);
+    console.log(response.data);
   };
 
   useEffect(() => {
     fetchAPI();
   }, []);
 
-  function goHome(){
-    // send user home
-    console.log("pretend you got sent home");
-  }
-
   return (
     <div className="header">
-      <LogoButton logoClick={() => goHome()}/>
+      <LogoButton />
       <SearchBar onSearch={() => runSearch}/>
       <UpperRight loginStatus={loggedIn}/>
     </div>
