@@ -9,9 +9,9 @@ function Header(runSearch: any) {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const fetchAPI = async () => {
-    const response = await axios.get('http://localhost:8080/api');
-    console.log("if a list of fruits follows, the backend is connected");
-    console.log(response.data.fruits);
+    const response = await axios.get('http://localhost:8000/api');
+    console.log("message from backend");
+    console.log(response);
   };
 
   useEffect(() => {
