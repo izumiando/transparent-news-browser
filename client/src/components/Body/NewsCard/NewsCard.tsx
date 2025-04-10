@@ -21,6 +21,7 @@ const NewsCard = ({ key, image, source, title, time, location }: NewsCardProps) 
           <span className="news-source">{source}</span>
         </div>
         <h3 className="news-title">{title}</h3>
+        <hr className="card-divider" />
         <div className="news-meta">
           <span>{time} ago</span> • <span>{location}</span>
         </div>

@@ -20,6 +20,7 @@
 
 .news-content {
     flex: 1;
+    text-align: left;
 }
 
 .news-header {
@@ -44,4 +45,9 @@
     font-size: 12px;
     color: #aaa;
 }
-  
+
+.card-divider {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 8px 0;
+}
